@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { AuthorizeService } from './authorize.service';
 import { catchError, mergeMap } from 'rxjs/operators';
 import { ErrorResponseMessages } from './api-authorization.constants';
-import { MessageType, ResponseMessage, ResponseMessageDto } from '../@core/dto/response-message-dto';
+import { MessageType, ResponseMessage, ResponseMessageDto } from '../Constant/messageDto';
 @Injectable({
   providedIn: 'root'
 })

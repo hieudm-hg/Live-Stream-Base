@@ -10,7 +10,8 @@
           <p>{{messages?.message ? messages?.message : 'Vui lòng thử lại sau'}}</p>
         </div>
       </div>
-      <button class="authorized-button"
+      <button 
+        class="authorized-button"
         [routerLink]='["/authentication/logout"]'
         [state]='{ local: true }'
       >

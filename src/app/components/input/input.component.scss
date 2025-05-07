@@ -1,0 +1,9 @@
+@import "../../../assets/styles/color.scss";
+
+.ant-input-affix-wrapper {
+    background-color: transparent !important;
+    .ant-input {
+        background-color: transparent !important;
+        color: $Gray-400;
+    }
+}

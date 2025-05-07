@@ -1,5 +1,3 @@
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
 import { catchError } from 'rxjs/operators';
 import { AuthData, ForgotPass, Login, Register, ResetPass } from '../data/auth';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams,} from '@angular/common/http';

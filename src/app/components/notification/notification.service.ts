@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { timer } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
-import { getPausableTimer } from 'src/app/@core/utils/notificationService';
-import { NotificationClass } from 'src/app/model/notification';
+import { NotificationClass } from './config';
+import { getPausableTimer } from 'src/app/service-custom/notification.service';
 
 @Injectable()
 export class NotificationsService {

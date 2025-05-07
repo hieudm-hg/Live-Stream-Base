@@ -10,12 +10,12 @@ export class PaginationComponent implements OnInit {
   @Input() jumpPage: number = 1;
   @Input() data: any[] = [];
   @Input() start: number = 1;
-  @Input() end: number = 8;
-  @Input() total: number = 8;
+  @Input() end: number = 10;
+  @Input() total: number = 10;
   @Input() page: number = 1;
-  @Input() pageSize: number = 8;
+  @Input() pageSize: number = 10;
   @Input() isJumPage: boolean = true;
-  @Input() pageSizeOptions = [8, 16, 24, 32, 40, 48];
+  @Input() pageSizeOptions = [10, 20, 30, 40, 50, 80];
   @Input() showPageSizeSelector: boolean = true;
   @Input() isShowInfoPage: boolean = true;
 

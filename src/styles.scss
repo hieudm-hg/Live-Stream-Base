@@ -2,3 +2,7 @@
 @import "./assets/styles/color.scss";
 @import "./assets/styles/text.scss";
 @import "./assets/styles/display.scss";
+@import "./assets/styles/antd-design.scss";
+@import "~ng-zorro-antd/style/index.min.css"; /* Import base styles */
+@import "~ng-zorro-antd/button/style/index.min.css";  /* Import one component's styles */
+// @import "~ng-zorro-antd/ng-zorro-antd.less";

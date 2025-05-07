@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { deviceTimeZoneOffset } from 'src/app/helper/common.helper';
+import { deviceTimeZoneOffset } from '../commonFunction/common.helper';
 
 @Pipe({
   name: 'timezone'

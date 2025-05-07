@@ -1,0 +1,158 @@
+<div class="manage-role-page">
+    <div class="header-action d-flex align-center justify-between">
+        <app-input
+          [width]="'240px'"
+          [placeholder]="'Tìm kiếm'"
+          [searchText]="searchText"
+          (onSearch)="handleOnSearch($event)"
+          (onClear)="handleOnClear()">
+        </app-input>
+        <button
+            nz-button
+            nzType="primary">
+            Thêm mới
+            <span
+                style="font-size: 20px; color: #FFFFFF;"
+                nz-icon
+                nzType="ng-zorro:vuesax_icon"
+            ></span>
+        </button>
+    </div>
+    <div class="body-container mt-16">
+        <div class="table-container">
+            <nz-table
+              #filterTable
+              [nzShowPagination]="false"
+              [nzFrontPagination]="false"
+              [nzLoading]="loading"
+              [nzNoResult]="noResultTemplate"
+              [nzTotal]="total"
+              [nzData]="listOfDisplayData"
+              [nzPageSize]="pageSize"
+              [nzPageIndex]="page"
+              (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+              (nzQueryParams)="onQueryParamsChange($event)"
+            >
+              <thead>
+                <tr>
+                  <th
+                    [nzChecked]="checked"
+                    [nzIndeterminate]="indeterminate"
+                    style="width: 58px;"
+                    (nzCheckedChange)="checkAll($event)">
+                  </th>
+                  <ng-container
+                    *ngFor="let column of listColumnsDisplay; index as i"
+                    [ngSwitch]="i">
+                    <ng-container *ngSwitchCase="'email'">
+                      <th
+                        scope="col"
+                        *ngIf="!column.hidden"
+                        nzAlign="left"
+                        nzColumnKey="{{ column.key }}"
+                        class="cl{{ i }}"
+                        [nzSortFn]="column.sortFn"
+                        style="width: 212px;">
+                        {{ column.name }}
+                      </th>
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>
+                      <th
+                        scope="col"
+                        *ngIf="!column.hidden"
+                        nzAlign="left"
+                        nzColumnKey="{{ column.key }}"
+                        class="cl{{ i }}"
+                        [nzSortFn]="column.sortFn">
+                        {{ column.name }}
+                      </th>
+                    </ng-container>
+                  </ng-container>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let data of filterTable.data; let i = index"
+                  [class.selected]="setOfCheckedId.has(data.id)"
+                  (contextmenu)="contextMenu($event, menu)">
+                  <td
+                    [nzChecked]="setOfCheckedId.has(data.id)"
+                    (nzCheckedChange)="onItemChecked(data, $event)"
+                    >
+                  </td>
+                  <td
+                    [style.color]="data?.displayName ? '' : '#F98723'"
+                    class="cl6 text-wrap-custom bold-text">
+                    {{ data?.displayName ? data?.displayName : 'Không' }}
+                  </td>
+                  <td
+                    [style.color]="data?.username ? '' : '#F98723'"
+                    class="cl6  text-wrap-custom bold-text">
+                    {{ data?.username ? data?.username : 'Không' }}
+                  </td>
+                  <td
+                    class="cl6">
+                    <div class="column-email">
+                      <div class="text-wrap-custom">{{data?.email}}</div>
+                    </div>
+                  </td>
+                  <td
+                    class="cl6">
+                    {{data?.role?.name}}
+                  </td>
+                  <td
+                    class="cl6">
+                    <ng-container *ngFor="let department of data?.departments; let last = last">
+                      <span
+                        nz-tooltip
+                        [nzTooltipTitle]="department?.name"
+                        >{{department?.name}}{{last ? '' : ', '}}
+                      </span>
+                    </ng-container>
+                  </td>
+                  <td
+                    class="cl6   text-wrap-custom bold-text">
+                    {{data?.jobPosition}}
+                  </td>
+                  <td
+                    class="cl6">
+                    {{ data?.createdDate | timezone:'dd/MM/yyyy HH:mm:ss' }}
+                  </td>
+                  <td
+                    class="cl6  ">
+                    {{ data?.lastLogin | timezone:'dd/MM/yyyy HH:mm:ss' }}
+                  </td>
+                  <td class="cl6 ">
+                    test
+                    <!-- <app-status-label [accountStatus]="data?.accountStatus"></app-status-label> -->
+                  </td>
+                  <nz-dropdown-menu #menu="nzDropdownMenu">
+                      <!-- <app-dropdown-menu
+                        [dataDropdown]="data"
+                        [typeDrowdown]="'user'"
+                        [permission]="roleMenuPermission"
+                        [listAction]="data?.isLocked ? listActionUserDeactive : listActionUser"
+                        (onAction)="handleOnAction($event)">
+                      </app-dropdown-menu> -->
+                  </nz-dropdown-menu>
+                </tr>
+              </tbody>
+            </nz-table>
+          </div>
+          <ng-template #noResultTemplate>
+            <!-- <app-content-follow [typeIcon]="'clasic'" [type]="typeNoResult"></app-content-follow> -->
+          </ng-template>
+          <div style="padding: 12px;" class="d-flex align-center justify-end">
+            <app-pagination
+              [data]="listOfDisplayData"
+              [isShowInfoPage]="false"
+              [isJumPage]="false"
+              [total]="total"
+              [page]="page"
+              [pageSize]="pageSize"
+              (onChangePage)="handlePageIndexChange($event)"
+              (onPageSizeChange)="handlePageSizeChange($event)">
+            </app-pagination>
+          </div>
+    </div>
+</div>
