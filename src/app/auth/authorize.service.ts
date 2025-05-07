@@ -45,7 +45,7 @@ export class AuthorizeService {
   // If you want to enable pop up authentication simply set this flag to false.
 
   private popUpDisabled = true;
-  private userManager: UserManager = new UserManager({});
+  private userManager: UserManager;
   private userSubject: BehaviorSubject<any> = new BehaviorSubject(null);
   private httpClient: HttpClient;
   private getRoleUrl: string;
@@ -83,7 +83,7 @@ export class AuthorizeService {
   //    redirect flow.
   public async signIn(state: any): Promise<IAuthenticationResult> {
     await this.ensureUserManagerInitialized();
-    let user: User | null = null;
+    let user: User = null;
     try {
       user = await this.userManager.signinSilent(this.createArguments());
       this.userSubject.next(user.profile);
@@ -196,7 +196,6 @@ export class AuthorizeService {
       automaticSilentRenew: true,
       includeIdTokenInSilentRenew: true
     };
-
     this.userManager = new UserManager(configs);
 
     this.userManager.events.addUserSignedOut(async () => {

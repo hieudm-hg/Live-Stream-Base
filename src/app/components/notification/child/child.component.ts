@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NotificationsService } from '../notification.service';
-import { NotificationClass } from 'src/app/model/notification';
+import { NotificationClass } from '../config';
 
 @Component({
   selector: 'app-child-notification',

@@ -4,19 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NZ_DATE_LOCALE, NZ_I18N, vi_VN } from 'ng-zorro-antd/i18n';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { vi } from 'date-fns/locale';
 import { AuthorizeInterceptor } from './auth/authorize.interceptor';
-import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ApiAuthorizationModule } from './auth/api-authorization.module';
 @NgModule({
   declarations: [
     AppComponent,
-    NotAuthorizedComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ApiAuthorizationModule
   ],
   providers: [
     { provide: NZ_DATE_LOCALE, useValue: vi },

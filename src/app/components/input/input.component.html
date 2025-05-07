@@ -1,0 +1,42 @@
+<nz-input-group [style]="style" [nzPrefix]="suffixIcon" [nzSuffix]="inputClearIcon">
+    <input
+        [style.width]="width"
+        type="text"
+        nz-input
+        [(ngModel)]="searchText"
+        (ngModelChange)="handleSearch($event)"
+        [placeholder]="placeholder" />
+</nz-input-group>
+  <ng-template #suffixIcon>
+    <span
+        style="font-size: 20px; color: transparent;"
+        nz-icon
+        nzType="ng-zorro:search_icon"
+    ></span>
+  </ng-template>
+  <ng-template #inputClearIcon>
+    <span
+        *ngIf="searchText"
+        nz-icon
+        class="ant-input-clear-icon"
+        nzTheme="fill"
+        nzType="close-circle"
+        (click)="handleOnClear()"
+    >
+  </span>
+</ng-template>
+
+<!-- <input
+    [style.width]="width"
+    nz-input
+    [(ngModel)]="searchText"
+    (input)="onInput($event)"
+    [placeholder]="placeholder"
+    [nzAutocomplete]="auto"
+/>
+<nz-autocomplete #auto>
+    <nz-auto-option *ngFor="let option of optionAutoComplete"
+      [nzValue]="option">
+      {{ option }}
+    </nz-auto-option>
+</nz-autocomplete> -->

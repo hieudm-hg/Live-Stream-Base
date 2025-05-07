@@ -1,0 +1,116 @@
+.ant-menu-item-selected {
+    background-color: transparent !important;
+}
+
+.ant-menu-item {
+    &:hover {
+        background-color: transparent !important;
+    }
+}
+
+.ant-layout-header {
+    background-color: $Base-Black !important;
+}
+
+.ant-menu {
+    background-color: transparent !important;
+}
+
+.ant-btn-primary {
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px !important;
+    padding: 8px 16px !important;
+    background-color: $Blue !important;
+    font-weight: 500;
+    color: $Neutral-color !important;
+}
+.anticon  {
+    margin: 0 !important;
+}
+
+.ant-checkbox .ant-checkbox-inner {
+    border-radius: 4px !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+.ant-checkbox .ant-checkbox-inner{
+    background-color: $Base-Black !important;
+}
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #1890ff !important;
+    border-color: #1890ff;
+}
+
+.ant-table-wrapper {
+    .ant-table {
+        border: 1px solid $Gray-400;
+        border-radius: 8px !important;
+        overflow: hidden;
+        .ant-table-container {
+            .ant-table-content {
+                table {
+                    .ant-table-thead {
+                        .ant-table-row {
+                            .ant-table-cell {
+                                background-color: $Base-Black;
+                                color: $Gray-400;
+                                &:hover {
+                                    background-color: #27272ACC;
+                                }
+                            }
+                        }
+                    }
+                    .ant-table-tbody {
+                        background-color: $Base-Black !important;
+                        color: $Gray-400;
+                        &:hover {
+                            background-color: $Base-Black !important;
+                        }
+                        .ant-table-placeholder {
+                            // background-color: $Base-Black !important;
+                            // &:hover {
+                            //     background-color: $Base-Black !important;
+                            // }
+                            .ant-table-cell {
+                                background-color: $Base-Black ;
+                                &:hover {
+                                    background-color: #27272ACC;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ant-pagination-prev, .ant-pagination-next {
+    border-radius: 8px !important;
+    border: none !important;
+    button {
+        background: transparent !important;
+        border-radius: 8px !important;
+        border: none !important;
+        color: $Gray-50 !important;
+        &:hover {
+            background-color: $Neutral-800 !important;
+        }
+    }
+}
+
+.ant-pagination-item-active {
+    background-color: $Neutral-800 !important;
+    border: 1px solid $Gray-700 !important;
+}
+.ant-pagination-item {
+    border-radius: 8px !important;
+    background: transparent;
+    border: none;
+    a {
+        color: $Gray-50 !important;
+    }
+}
